@@ -102,7 +102,7 @@ def updated_json(list_of_lists_of_cities_and_prices):
     return dict_to_json
 
 
-def main():  # def lambda_handler(event, context):
+def lambda_handler(event, context):
     handle_json = HandleJson()
     list_of_lists_of_cities_and_prices = start_scraping()
     if list_of_lists_of_cities_and_prices:
@@ -112,6 +112,3 @@ def main():  # def lambda_handler(event, context):
             dict_to_json = updated_json(list_of_lists_of_cities_and_prices)
             handle_json.write_data_to_json(dict_to_json)
 
-
-if __name__ == "__main__":
-    main()
